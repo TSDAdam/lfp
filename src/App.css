@@ -1,38 +1,68 @@
+* {
+  background-color: #edeae5;
+  color: #026670;
+}
+
+p {
+  background-color: #fef9c7;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  padding: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.card {
+  background-color: #fef9c7;
+  max-width: 180px;
+  padding: 15px 30px;
+  border-radius: 15px;
+  margin: 20px 0px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.gamename {
+  background-color: #fef9c7;
+  font-size: 1.5vw;
+  font-weight: 600;
+}
+
+.playbutton {
+  background-color: #fce181;
+  border: none;
+  width: 150px;
+  height: 44px;
+  border-radius: 10px;
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.editbutton {
+  background-color: #fce181;
+  border: none;
+  width: 42px;
+  height: 22px;
+  border-radius: 3px;
+  margin-top: 10px;
+}
+
+.details {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 30px;
+  width: 100%;
+  background-color: #fef9c7;
+  font-size: 16px;
+}
+
+.bignumbers {
+  font-size: 24px;
 }
 
 .App-link {
   color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
