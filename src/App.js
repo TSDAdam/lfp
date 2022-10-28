@@ -17,6 +17,12 @@ function App() {
         freespaces="1"
         tablenum="2"
       />
+      <Card
+        gamename="Endless Winter: Paleoamericans"
+        maxplayers="4"
+        freespaces="1"
+        tablenum="2"
+      />
     </div>
   );
 }
