@@ -1,6 +1,6 @@
 import ReactFitText from "react-fittext";
 
-function Card({ gamename, maxplayers, freespaces, tablenum }) {
+function Card({ id, gamename, maxplayers, freespaces, tablenum }) {
   return (
     <div className="cardwrapper">
       <div className="card">
@@ -24,6 +24,7 @@ function Card({ gamename, maxplayers, freespaces, tablenum }) {
         </button>
         <br />
       </div>
+
       <div className="editbuttons">
         <button type="button" className="editbutton">
           Edit
