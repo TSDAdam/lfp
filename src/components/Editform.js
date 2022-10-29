@@ -1,4 +1,12 @@
 function Editform({ id, gamename, maxplayers, freespaces, tablenum }) {
+  console.log(
+    "clicked",
+    { id },
+    { gamename },
+    { maxplayers },
+    { freespaces },
+    { tablenum }
+  );
   return (
     <div className="form">
       <p>Name of game:</p>

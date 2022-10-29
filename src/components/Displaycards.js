@@ -1,3 +1,4 @@
+import React from "react";
 import ReactFitText from "react-fittext";
 import Editform from "./Editform";
 
@@ -10,16 +11,25 @@ function Displaycards({ lastid }) {
     freespaces: 1,
     tablenum: 5,
   };
+  const secondcard = {
+    id: 2,
+    gamename: "Ticket to Ride",
+    maxplayers: 4,
+    freespaces: 2,
+    tablenum: 3,
+  };
+
+  const [showMenu, setShowMenu] = React.useState(false);
 
   cards.push(firstcard);
-  var editcard = cards[0];
+  cards.push(secondcard);
 
   return (
-    <div>
+    <div className="cardwrapper">
       {cards.map(({ id, gamename, maxplayers, freespaces, tablenum }) => {
         return (
           <div key={id}>
-            <div className="cardwrapper">
+            <div>
               <div className="card">
                 <ReactFitText compressor={0.8}>
                   <div className="gamename">{gamename}</div>
@@ -43,20 +53,35 @@ function Displaycards({ lastid }) {
               </div>
 
               <div className="editbuttons">
-                <button type="button" className="editbutton">
+                <button
+                  type="button"
+                  className="editbutton"
+                  onClick={() => setShowMenu(!showMenu)}
+                >
                   Edit
                 </button>
                 <button type="button" className="delbutton">
                   X
                 </button>
               </div>
+              {showMenu && (
+                <div>
+                  <Editform
+                    id={id}
+                    gamename={gamename}
+                    maxplayers={maxplayers}
+                    freespaces={freespaces}
+                    tablenum={tablenum}
+                  />
+                </div>
+              )}
             </div>
           </div>
         );
       })}
-      <Editform {...editcard} />
     </div>
   );
 }
 
 export default Displaycards;
+// <Editform {...cards} />

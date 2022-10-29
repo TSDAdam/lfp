@@ -1,6 +1,10 @@
+import React from "react";
 import ReactFitText from "react-fittext";
+import Editform from "./Editform";
 
 function Card({ id, gamename, maxplayers, freespaces, tablenum }) {
+  const [showMenu, setShowMenu] = React.useState(false);
+  console.log(showMenu);
   return (
     <div className="cardwrapper">
       <div className="card">
@@ -26,13 +30,30 @@ function Card({ id, gamename, maxplayers, freespaces, tablenum }) {
       </div>
 
       <div className="editbuttons">
-        <button type="button" className="editbutton">
+        <button
+          type="button"
+          className="editbutton"
+          onClick={() => setShowMenu(!showMenu)}
+        >
           Edit
         </button>
         <button type="button" className="delbutton">
           X
         </button>
       </div>
+      {showMenu && (
+        <div>
+          <Editform
+            game={{
+              id: { id },
+              gamename: { gamename },
+              maxplayers: { maxplayers },
+              freespaces: { freespaces },
+              tablenum: { tablenum },
+            }}
+          />
+        </div>
+      )}
     </div>
   );
 }
