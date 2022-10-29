@@ -1,6 +1,7 @@
 import ReactFitText from "react-fittext";
+import Editform from "./Editform";
 
-function Displaycards() {
+function Displaycards({ lastid }) {
   const cards = []; // array for all the game cards
   const firstcard = {
     id: 1,
@@ -11,7 +12,8 @@ function Displaycards() {
   };
 
   cards.push(firstcard);
-  console.log({ cards });
+  var editcard = cards[0];
+
   return (
     <div>
       {cards.map(({ id, gamename, maxplayers, freespaces, tablenum }) => {
@@ -52,6 +54,7 @@ function Displaycards() {
           </div>
         );
       })}
+      <Editform {...editcard} />
     </div>
   );
 }

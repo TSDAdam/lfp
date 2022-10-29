@@ -4,9 +4,10 @@ import Card from "./components/Card";
 import Displaycards from "./components/Displaycards";
 
 function App() {
+  const lastID = 0;
   return (
     <div className="container">
-      <Displaycards />
+      <Displaycards lastid={lastID} />
     </div>
   );
 }
