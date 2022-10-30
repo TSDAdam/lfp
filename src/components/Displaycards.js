@@ -3,26 +3,24 @@ import ReactFitText from "react-fittext";
 import Editform from "./Editform";
 
 function Displaycards({ lastid }) {
-  const cards = []; // array for all the game cards
-  const firstcard = {
-    id: 1,
-    gamename: "El Dorado",
-    maxplayers: 4,
-    freespaces: 1,
-    tablenum: 5,
-  };
-  const secondcard = {
-    id: 2,
-    gamename: "Ticket to Ride",
-    maxplayers: 4,
-    freespaces: 2,
-    tablenum: 3,
-  };
+  const [cards, setCards] = React.useState([
+    {
+      id: 1,
+      gamename: "El Dorado",
+      maxplayers: 4,
+      freespaces: 1,
+      tablenum: 5,
+    },
+    {
+      id: 2,
+      gamename: "Ticket to Ride",
+      maxplayers: 4,
+      freespaces: 2,
+      tablenum: 3,
+    },
+  ]); // using the React state for the cards array
 
-  const [showMenu, setShowMenu] = React.useState(false);
-
-  cards.push(firstcard);
-  cards.push(secondcard);
+  const [showForm, setShowForm] = React.useState(false);
 
   return (
     <div className="cardwrapper">
@@ -56,7 +54,7 @@ function Displaycards({ lastid }) {
                 <button
                   type="button"
                   className="editbutton"
-                  onClick={() => setShowMenu(!showMenu)}
+                  onClick={() => setShowForm(!showForm)}
                 >
                   Edit
                 </button>
@@ -64,14 +62,12 @@ function Displaycards({ lastid }) {
                   X
                 </button>
               </div>
-              {showMenu && (
+              {showForm && (
                 <div>
                   <Editform
+                    cards={cards.filter((card) => card.id === id)}
+                    setCards={setCards}
                     id={id}
-                    gamename={gamename}
-                    maxplayers={maxplayers}
-                    freespaces={freespaces}
-                    tablenum={tablenum}
                   />
                 </div>
               )}
