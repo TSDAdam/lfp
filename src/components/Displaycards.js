@@ -21,6 +21,7 @@ function Displaycards({ lastid }) {
   ]); // using the React state for the cards array
 
   const [showForm, setShowForm] = React.useState(false);
+  const [currentid, setCurrentid] = React.useState(0);
 
   return (
     <div className="cardwrapper">
@@ -54,7 +55,10 @@ function Displaycards({ lastid }) {
                 <button
                   type="button"
                   className="editbutton"
-                  onClick={() => setShowForm(!showForm)}
+                  onClick={() => {
+                    setShowForm(!showForm);
+                    setCurrentid(id);
+                  }}
                 >
                   Edit
                 </button>
@@ -62,19 +66,15 @@ function Displaycards({ lastid }) {
                   X
                 </button>
               </div>
-              {showForm && (
-                <div>
-                  <Editform
-                    cards={cards.filter((card) => card.id === id)}
-                    setCards={setCards}
-                    id={id}
-                  />
-                </div>
-              )}
             </div>
           </div>
         );
       })}
+      {showForm && (
+        <div>
+          <Editform cards={cards} setCards={setCards} id={currentid} />
+        </div>
+      )}
     </div>
   );
 }
