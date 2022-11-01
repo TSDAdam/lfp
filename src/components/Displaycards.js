@@ -3,6 +3,7 @@ import ReactFitText from "react-fittext";
 import Editform from "./Editform";
 
 function Displaycards({ lastid }) {
+  // dummy data hardcoded for now
   const [cards, setCards] = React.useState([
     {
       id: 1,
@@ -18,7 +19,7 @@ function Displaycards({ lastid }) {
       freespaces: 2,
       tablenum: 3,
     },
-  ]); // using the React state for the cards array
+  ]);
 
   const [showForm, setShowForm] = React.useState(false);
   const [currentid, setCurrentid] = React.useState(0);
@@ -80,4 +81,3 @@ function Displaycards({ lastid }) {
 }
 
 export default Displaycards;
-// <Editform {...cards} />

@@ -20,6 +20,7 @@ function Editform({ cards, setCards, id }) {
             : card // ... or just write the original back in place.
       )
     );
+    console.log(cards);
   }
 
   return (
@@ -27,20 +28,20 @@ function Editform({ cards, setCards, id }) {
       {editThisCard && ( // should only render if editThisCard is true.
         <div className="form">
           <p>Name of game:</p>
-          <input type="text" value={thisCard.gamename}></input>
+          <input type="text" defaultValue={thisCard.gamename}></input>
 
           <p>Max players: </p>
-          <input type="text" value={thisCard.maxplayers}></input>
+          <input type="text" defaultValue={thisCard.maxplayers}></input>
           <p>Free spaces: </p>
-          <input type="text" value={thisCard.freespaces}></input>
+          <input type="text" defaultValue={thisCard.freespaces}></input>
 
           <p>Table #: </p>
-          <input type="text" value={thisCard.tablenum}></input>
+          <input type="text" defaultValue={thisCard.tablenum}></input>
           <p></p>
           <button
             type="button"
             className="playbutton"
-            onClick={saveChanges(thisCard)} //remove to see edit form - leave in for perpetual loop.
+            onClick={() => saveChanges(thisCard)} //remove to see edit form - leave in for perpetual loop.
           >
             Save changes
           </button>
