@@ -2,25 +2,7 @@ import React from "react";
 import ReactFitText from "react-fittext";
 import Editform from "./Editform";
 
-function Displaycards({ lastid }) {
-  // dummy data hardcoded for now
-  const [cards, setCards] = React.useState([
-    {
-      id: 1,
-      gamename: "El Dorado",
-      maxplayers: 4,
-      freespaces: 1,
-      tablenum: 5,
-    },
-    {
-      id: 2,
-      gamename: "Ticket to Ride",
-      maxplayers: 4,
-      freespaces: 2,
-      tablenum: 3,
-    },
-  ]);
-
+function Displaycards({ cards, setCards, lastid }) {
   const [showForm, setShowForm] = React.useState(false);
   const [currentid, setCurrentid] = React.useState(0);
 

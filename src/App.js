@@ -1,39 +1,56 @@
 import "./App.css";
-// import Showcards from "./components/Showcards";
-import Card from "./components/Card";
+import React from "react";
 import Displaycards from "./components/Displaycards";
+import Newcard from "./components/Newcard";
 
 function App() {
-  const lastID = 0;
+  const [cards, setCards] = React.useState([
+    {
+      id: 0,
+      gamename: "El Dorado",
+      maxplayers: 4,
+      freespaces: 1,
+      tablenum: 5,
+    },
+    {
+      id: 1,
+      gamename: "Ticket to Ride",
+      maxplayers: 4,
+      freespaces: 2,
+      tablenum: 3,
+    },
+  ]);
+  const [showNewForm, setShowNewForm] = React.useState(false);
+  const [lastID, setLastID] = React.useState(1);
+
   return (
     <div className="container">
-      <Displaycards lastid={lastID} />
+      <button
+        type="button"
+        className="playbutton"
+        onClick={() => setShowNewForm(!showNewForm)}
+      >
+        Add a game
+      </button>
+      <Displaycards
+        cards={cards}
+        setCards={setCards}
+        lastid={lastID}
+        setLastID={setLastID}
+      />
+
+      {showNewForm && (
+        <div>
+          <Newcard
+            cards={cards}
+            setCards={setCards}
+            lastid={lastID}
+            setLastID={setLastID}
+          />
+        </div>
+      )}
     </div>
   );
 }
 
 export default App;
-
-/* <Card
-id="1"
-gamename="Ticket to Ride"
-maxplayers="4"
-freespaces="1"
-tablenum="2"
-/>
-<Card
-id="2"
-gamename="Ticket to Ride: Europe"
-maxplayers="4"
-freespaces="1"
-tablenum="2"
-/>
-<Card
-id="3"
-gamename="Endless Winter: Paleoamericans"
-maxplayers="4"
-freespaces="1"
-tablenum="2"
-/>
-
-*/
