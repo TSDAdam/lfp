@@ -25,19 +25,23 @@ function App() {
 
   return (
     <div className="container">
-      <button
-        type="button"
-        className="playbutton"
-        onClick={() => setShowNewForm(!showNewForm)}
-      >
-        Add a game
-      </button>
-      <Displaycards
-        cards={cards}
-        setCards={setCards}
-        lastid={lastID}
-        setLastID={setLastID}
-      />
+      <div className="navbar">
+        <button
+          type="button"
+          className="playbutton"
+          onClick={() => setShowNewForm(!showNewForm)}
+        >
+          Add a game
+        </button>
+      </div>
+      <div>
+        <Displaycards
+          cards={cards}
+          setCards={setCards}
+          lastid={lastID}
+          setLastID={setLastID}
+        />
+      </div>
 
       {showNewForm && (
         <div>

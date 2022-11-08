@@ -27,7 +27,7 @@ function Newcard({
     console.log(cards);
   }
   return (
-    <>
+    <div className="overlay">
       <div className="form">
         <p>Name of game:</p>
         <input type="text" ref={gamenameref}></input>
@@ -48,10 +48,10 @@ function Newcard({
             setShowForm(!showForm);
           }} //remove to see edit form - leave in for perpetual loop.
         >
-          Save changes
+          Save
         </button>
       </div>
-    </>
+    </div>
   );
 }
 

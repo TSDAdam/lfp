@@ -28,7 +28,7 @@ function Editform({ cards, setCards, id, showForm, setShowForm }) {
   }
 
   return (
-    <>
+    <div className="overlay">
       {editThisCard && ( // should only render if editThisCard is true.
         <div className="form">
           <p>Name of game:</p>
@@ -66,11 +66,11 @@ function Editform({ cards, setCards, id, showForm, setShowForm }) {
               setShowForm(!showForm);
             }}
           >
-            Save changes
+            Save
           </button>
         </div>
       )}
-    </>
+    </div>
   );
 }
 
