@@ -8,16 +8,16 @@ function App() {
     {
       id: 0,
       gamename: "El Dorado",
-      maxplayers: 4,
-      freespaces: 1,
-      tablenum: 5,
+      maxplayers: "4",
+      freespaces: "1",
+      tablenum: "5",
     },
     {
       id: 1,
       gamename: "Ticket to Ride",
-      maxplayers: 4,
-      freespaces: 2,
-      tablenum: 3,
+      maxplayers: "4",
+      freespaces: "2",
+      tablenum: "3",
     },
   ]);
   const [showNewForm, setShowNewForm] = React.useState(false);
@@ -46,6 +46,8 @@ function App() {
             setCards={setCards}
             lastid={lastID}
             setLastID={setLastID}
+            showForm={showNewForm}
+            setShowForm={setShowNewForm}
           />
         </div>
       )}

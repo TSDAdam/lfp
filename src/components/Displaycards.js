@@ -55,7 +55,13 @@ function Displaycards({ cards, setCards, lastid }) {
       })}
       {showForm && (
         <div>
-          <Editform cards={cards} setCards={setCards} id={currentid} />
+          <Editform
+            cards={cards}
+            setCards={setCards}
+            id={currentid}
+            showForm={showForm}
+            setShowForm={setShowForm}
+          />
         </div>
       )}
     </div>

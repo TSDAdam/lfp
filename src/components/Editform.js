@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 
-function Editform({ cards, setCards, id }) {
+function Editform({ cards, setCards, id, showForm, setShowForm }) {
   const thisCard = cards.filter((card) => card.id === id)[0];
   const editThisCard = thisCard.id === id; // trying to match id of passed card to correct card in 'cards' array.
 
@@ -24,9 +24,7 @@ function Editform({ cards, setCards, id }) {
             }
           : card // ... or just write the original back in place.
     );
-    console.log(newCardsArray);
-    setCards([newCardsArray]);
-    console.log(cards);
+    setCards(newCardsArray);
   }
 
   return (
@@ -63,7 +61,10 @@ function Editform({ cards, setCards, id }) {
           <button
             type="button"
             className="playbutton"
-            onClick={() => saveChanges()} //remove to see edit form - leave in for perpetual loop.
+            onClick={() => {
+              saveChanges();
+              setShowForm(!showForm);
+            }}
           >
             Save changes
           </button>

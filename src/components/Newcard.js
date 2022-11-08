@@ -1,6 +1,13 @@
 import React, { useRef } from "react";
 
-function Newcard({ cards, setCards, lastid, setLastID }) {
+function Newcard({
+  cards,
+  setCards,
+  lastid,
+  setLastID,
+  showForm,
+  setShowForm,
+}) {
   const gamenameref = useRef(null);
   const maxplayersref = useRef(null);
   const freespacesref = useRef(null);
@@ -36,7 +43,10 @@ function Newcard({ cards, setCards, lastid, setLastID }) {
         <button
           type="button"
           className="playbutton"
-          onClick={() => saveChanges()} //remove to see edit form - leave in for perpetual loop.
+          onClick={() => {
+            saveChanges();
+            setShowForm(!showForm);
+          }} //remove to see edit form - leave in for perpetual loop.
         >
           Save changes
         </button>
